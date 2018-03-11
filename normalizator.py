@@ -30,5 +30,5 @@ for un_word in words:
 print("Нормализованный массив")
 print(norm_word)
 
-my_dict = dict((x, norm_word.count(x)) for x in set(norm_word))
+my_dict = dict((x, norm_word.count(x)/len(words)) for x in set(norm_word))
 print(my_dict)
