@@ -1,4 +1,5 @@
 import pymorphy2
+import itertools
 
 
 def norm(x):
@@ -9,7 +10,15 @@ def norm(x):
 
 path = "src.txt"
 inputFile = open(path, "r", encoding='utf8')
-words = inputFile.read().split(" ")
+lines = inputFile.read().splitlines()
+wordsByLines = []
+print(lines)
+for line in lines:
+    wordsByLines.append(line.split(' '))
+
+words = []
+for wordArr in wordsByLines:
+    words += wordArr
 
 print("Исходный массив")
 print(words)
