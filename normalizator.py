@@ -1,5 +1,6 @@
 import pymorphy2
 import itertools
+import matplotlib.pyplot as plt
 
 
 def norm(x):
@@ -32,3 +33,18 @@ print(norm_word)
 
 my_dict = dict((x, norm_word.count(x)/len(words)) for x in set(norm_word))
 print(my_dict)
+
+# Drawing
+norm_word_v = []
+
+for wrd in norm_word:
+    norm_word_v.append(my_dict.get(wrd))
+
+fig = plt.figure()
+
+graph1 = plt.plot(norm_word, norm_word_v)
+
+grid1 = plt.grid(True)   # линии вспомогательной сетки
+
+plt.show()
+
